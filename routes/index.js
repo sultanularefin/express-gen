@@ -49,13 +49,15 @@ app.use(function(req, res, next) {
 
 app.use(function(req, res, next) {
     // res.header("Access-Control-Allow-Origin", "http://localhost:3001/","http://localhost:3001");
-    res.header("Access-Control-Allow-Origin", "http://localhost:3001");
+    // res.header("Access-Control-Allow-Origin", "http://localhost:3001");
+    res.header("Access-Control-Allow-Origin", "*");
     // update to match the domain you will make the request from
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
 
-
+// 70:18:8B:81:D9:89
+// 70-18-8B-81-D9-89
 
 app.get("/", (
     req,

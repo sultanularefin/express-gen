@@ -6,18 +6,7 @@
 
 
 
-## "kingoffighters96^"
 
-company name: BeYourSelfVentures
-email: mhmdarefin@gmail.com
-
-"kingoffighters96^"
-
-app name: "arefin-file-upload"
-
-## authenticator app downloaded:
-
-## verifier name: mhmdarefin
 
 
 # heroku cli for upload new app:

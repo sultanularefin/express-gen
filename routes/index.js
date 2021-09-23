@@ -65,6 +65,30 @@ app.get("/", (
     res.sendFile(path.join(__dirname, "/../index.html"));
 });
 
+
+// express.static(path.join(__dirname, '../pictures'));
+// express.static(path.join(__dirname, '../public'));
+
+
+express.static(path.join(__dirname, './pictures'));
+express.static(path.join(__dirname, './public'));
+
+// express.static(path.join(__dirname, '/pictures'));
+
+// app.use(express.static('public'));
+// app.use(express.static('pictures'));
+
+
+// app.use('/asset', express.static(path.join(__dirname, 'public')))
+
+
+//Serves all the request which includes /images in the url from Images folder
+// app.use('/pictures', express.static(__dirname + '/pictures'));
+app.use('/pictures', express.static( './pictures'));
+
+
+
+
 // + '/../../foo.bar'
 app.post(
     "/upload",
@@ -108,7 +132,37 @@ app.post(
         */
 
 
-        const path = __dirname + "/files/" + file.name;
+
+
+        // console.log(" << __dirname >> : ", __dirname);
+
+
+        // const path = path.join(__dirname, '/pictures/' + file.name);
+
+
+
+
+        // const path = __dirname + "/files/" + file.name; //--------------------THIS WORKS------- -------------((1))
+
+        // const filePath = path.join(__dirname, '/pictures');
+
+        // console.log(" << filePath >> : ", filePath);
+
+
+        const path =  './pictures/'+ file.name;
+
+        /*
+        const filePath = path.join(__dirname, '/pictures');
+
+        console.log(" << filePath >> : ", filePath);
+
+        const path =  filePath + file.name;  //--------------------   TESTING  ------- -------------((2))
+       */
+
+        console.log(" << path >> ::: ", path);
+
+
+
 
         // return res.status(200).send(path);
 
@@ -118,7 +172,35 @@ app.post(
             if (err) {
                 return res.status(500).send(err);
             }
+
+
+
+            // FOR WEB::
+
+            /*
+            // console.log( `http://localhost:3000/${res.data.path.replace('./', '')}`);
             return res.send({ status: "success", path: path });
+
+
+
+             */
+
+            // not significant:
+            // FOR MOBILE::
+            // console.log( `http://localhost:3000/${res.data.path.replace('./', '')}`);
+            // return res.send({ status: "success", path: `http://localhost:3000${path.replace('.', '')}` });
+
+
+            //hostname -I
+            // 192.168.0.103
+
+            // return res.send({ status: "success", path: `http://192.168.0.103:3000${path.replace('.', '')}` });
+            return res.send({ status: "success", path: `http://192.168.0.103:3000${path.replace('.', '')}` });
+
+            // return res.send({ status: "success", path: path});
+
+
+
         });
     });
 
